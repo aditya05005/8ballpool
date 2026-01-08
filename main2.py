@@ -4,9 +4,9 @@ from ultralytics import YOLO
 from pocket_logic import PocketDetector
 
 # --- CONFIGURATION ---
-VIDEO_PATH = '/home/aditya/Documents/8ballpool/test2.mp4'
-MODEL_PATH = '/home/aditya/Documents/8ballpool/yolov8_20epoc_imgsz832.onnx'
-SKIP_FRAMES = 2 
+VIDEO_PATH = 'C:/Users/Samriddhi/Documents/8ballpool/8ballpool-master/Test2.mp4'
+MODEL_PATH = 'C:/Users/Samriddhi/Documents/8ballpool/8ballpool-master/yolo11s 40epoch.onnx'
+SKIP_FRAMES = 1 
 
 # UPDATE THIS MAP based on your findings!
 # We will use this to FILTER OUT everything except balls.
@@ -88,7 +88,7 @@ print(f"Starting Phase 2 with pockets: {pockets}")
 
 cap = cv2.VideoCapture(VIDEO_PATH)
 # Radius 25 is usually a good "Kill Zone" size
-detector = PocketDetector(pocket_coords=pockets, pocket_radius=25, cooldown_frames=15)
+detector = PocketDetector(pocket_coords=pockets, pocket_radius=45, cooldown_frames=20)
 model = YOLO(MODEL_PATH, task='detect')
 
 frame_count = 0
